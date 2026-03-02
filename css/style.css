@@ -1,0 +1,147 @@
+body {
+  background: #f8f9fa;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  width: 890px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+#graphic {
+  padding-top: 60px;
+  position: relative;
+}
+
+
+#sections {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  top: 0px;
+  z-index: 90;
+  padding-bottom: 200px;
+}
+
+.step {
+  margin-bottom: 200px;
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
+}
+
+#sections .title {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+
+#extra-space {
+  height: 300px;
+}
+
+#vis {
+  display: block;
+  position: fixed;
+  top: 60px;
+  left: 280px;
+  z-index: 100;
+  width: 720px;
+  max-width: calc(100vw - 320px);
+  min-height: 360px;
+  box-sizing: border-box;
+}
+
+#vis canvas {
+  display: block;
+}
+
+/* Peak-age chart: same position as #vis, shown when section 0 is active */
+#peak-age-chart {
+  display: block;
+  position: fixed;
+  top: 60px;
+  left: 280px;
+  z-index: 101;
+  width: 720px;
+  max-width: calc(100vw - 320px);
+  min-height: 360px;
+  box-sizing: border-box;
+}
+#peak-age-chart.hidden {
+  display: none !important;
+}
+#peak-age-chart canvas {
+  display: block;
+}
+
+/* Year-over-year chart: section 1 */
+#year-over-year-chart {
+  display: block;
+  position: fixed;
+  top: 60px;
+  left: 280px;
+  z-index: 101;
+  width: 720px;
+  max-width: calc(100vw - 320px);
+  min-height: 360px;
+  box-sizing: border-box;
+}
+#year-over-year-chart.hidden {
+  display: none !important;
+}
+#year-over-year-chart canvas {
+  display: block;
+}
+
+/* visibility helpers for popup effect controlled by VisualController */
+.vis-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+.vis-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0px);
+  transition: opacity 260ms ease, transform 260ms ease;
+}
+
+#vis .title {
+  font-size:120px;
+  text-anchor: middle;
+}
+
+#vis .sub-title {
+  font-size:80px;
+  text-anchor: middle;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #666;
+  shape-rendering: crispEdges;
+}
+
+.highlight {
+  fill: #008080;
+  font-weight: bold;
+}
+
+.cough-arrow {
+  stroke: #000;
+  stroke-width: 4px;
+
+}
+
+
