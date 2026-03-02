@@ -6,24 +6,33 @@ class VizPeakAge {
 
   preload() {}
 
-  setup(p) {
-    // Create a container for Chart.js inside the #vis div
-    const vis = document.getElementById("vis");
+  setup(p, manager, containerEl) {
+    // Use provided container, or #vis, or #peak-age-chart so chart is never cleared by p5
+    const container = containerEl || document.getElementById("peak-age-chart") || document.getElementById("vis");
+    if (!container) return;
 
-    // Remove any previous canvas
-    vis.innerHTML = "";
+    container.innerHTML = "";
 
-    // Create a canvas element for Chart.js
+    // Create a canvas element for Chart.js (explicit size so it's visible)
     this.canvasEl = document.createElement("canvas");
     this.canvasEl.id = "peakAgeChart";
     this.canvasEl.width = 720;
     this.canvasEl.height = 360;
-    vis.appendChild(this.canvasEl);
+    this.canvasEl.style.width = "720px";
+    this.canvasEl.style.height = "360px";
+    this.canvasEl.setAttribute("aria-label", "Age of peak performance by position chart");
+    container.appendChild(this.canvasEl);
 
-    // Data
-    const positions = ['RB', 'WR', 'TE', 'CB', 'LB', 'OL', 'QB'];
-    const peakAges = [25, 27, 27, 26, 27, 29, 30];
-    const errors = [1.2, 1.2, 1.3, 1.2, 1.2, 1.5, 2.0];
+    // Use data from Basic_Stats.csv (mean age by position, 18–45) or fallback
+    const d = (manager && manager.data) || {};
+    let positions = d.positions || ['RB', 'WR', 'TE', 'CB', 'LB', 'OL', 'QB'];
+    let peakAges = d.peakAges || [25, 27, 27, 26, 27, 29, 30];
+    let errors = d.errors || [1.2, 1.2, 1.3, 1.2, 1.2, 1.5, 2.0];
+    if (positions.length === 0) {
+      positions = ['RB', 'WR', 'TE', 'CB', 'LB', 'OT', 'QB'];
+      peakAges = [25, 27, 27, 26, 27, 29, 30];
+      errors = [1.2, 1.2, 1.3, 1.2, 1.2, 1.5, 2.0];
+    }
 
     const ctx = this.canvasEl.getContext("2d");
 
@@ -33,7 +42,7 @@ class VizPeakAge {
       data: {
         datasets: [{
           label: "Peak age",
-          data: peakAges.map((age, i) => ({ x: age, y: i })),
+          data: peakAges.map(function(age, i) { return { x: age, y: i }; }),
           backgroundColor: "rgb(59, 130, 246)",
           borderColor: "rgb(30, 64, 175)",
           borderWidth: 1,
@@ -55,9 +64,9 @@ class VizPeakAge {
               },
               afterLabel: function(ctx) {
                 const i = ctx.dataIndex;
-                return "Range: " + 
-                  (peakAges[i] - errors[i]).toFixed(1) + "–" + 
-                  (peakAges[i] + errors[i]).toFixed(1);
+                return "Range: " +
+                  (peakAges[i] - (errors[i] || 0)).toFixed(1) + "–" +
+                  (peakAges[i] + (errors[i] || 0)).toFixed(1);
               }
             }
           }
@@ -71,7 +80,7 @@ class VizPeakAge {
           },
           y: {
             min: -0.5,
-            max: positions.length - 0.5,
+            max: Math.max(positions.length - 0.5, 0),
             ticks: {
               stepSize: 1,
               callback: function(v) { return positions[v] ?? ""; }
@@ -85,18 +94,19 @@ class VizPeakAge {
         afterDatasetsDraw: function(chart) {
           const meta = chart.getDatasetMeta(0);
           const xScale = chart.scales.x;
-          const yScale = chart.scales.y;
           const err = chart.data.datasets[0].errorBar;
           if (!err) return;
 
+          const peakAgesArr = chart.data.datasets[0].data.map(function(d) { return d.x; });
           const ctx = chart.ctx;
           ctx.save();
           ctx.strokeStyle = "rgba(0,0,0,0.5)";
           ctx.lineWidth = 1.5;
 
-          meta.data.forEach((pt, i) => {
-            const left = xScale.getPixelForValue(peakAges[i] - err[i]);
-            const right = xScale.getPixelForValue(peakAges[i] + err[i]);
+          meta.data.forEach(function(pt, i) {
+            const e = err[i] || 0;
+            const left = xScale.getPixelForValue(peakAgesArr[i] - e);
+            const right = xScale.getPixelForValue(peakAgesArr[i] + e);
             const y = pt.y;
 
             ctx.beginPath();
@@ -136,3 +146,5 @@ class VizPeakAge {
     }
   }
 }
+
+window.VizPeakAge = VizPeakAge;
