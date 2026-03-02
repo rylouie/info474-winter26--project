@@ -19,22 +19,37 @@
         },
 
         draw: function (p, manager, ai, progress) {
-            try { console.log('Renderer: delegating draw, ai=', ai); } catch (e) { }
+    try { console.log('Renderer: delegating draw, ai=', ai); } catch (e) { }
 
-            if (ai === 0 || ai === 1) {
-                window.VizTitle.draw(p, manager, ai, progress);
-                return;
-            }
-
-            if (ai >= 4 && ai < 7) {
-                window.VizScatter.draw(p, manager, ai, progress);
-                return;
-            }
-
-            if (ai === 7) {
-                window.VizBar.draw(p, manager, ai, progress);
-                return;
-            }
+    // --- YOUR VISUALIZATION ---
+    if (ai === 0) {
+        if (!this.vizPeakAge) {
+            this.vizPeakAge = new VizPeakAge();
+            this.vizPeakAge.setup(p);
         }
-    };
-})();
+        return;
+    } else {
+        // cleanup when leaving section 0
+        if (this.vizPeakAge) {
+            this.vizPeakAge.destroy();
+            this.vizPeakAge = null;
+        }
+    }
+
+    // --- REMOVE OR IGNORE EXAMPLES BELOW ---
+    if (ai === 1 || ai === 2) {
+        window.VizTitle.draw(p, manager, ai, progress);
+        return;
+    }
+
+    if (ai >= 4 && ai < 7) {
+        window.VizScatter.draw(p, manager, ai, progress);
+        return;
+    }
+
+    if (ai === 7) {
+        window.VizBar.draw(p, manager, ai, progress);
+        return;
+    }
+}
+
