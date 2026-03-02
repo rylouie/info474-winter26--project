@@ -12,10 +12,9 @@
     <div id='graphic'>
       <div id='sections'>
         <section class="step" data-active-index="0">
-          <div class="title">INFO 474 Final Project</div>
-          Here is a template to work on your final project.<br /><br />
-          Your mission is to create an <b>interactive article using P5.js</b>.
-        </section>
+  <div class="title">Age of Peak Performance</div>
+  This visualization shows peak athletic performance by position.
+</section>
         <section class="step" data-active-index="1">
           <div class="title">Sections</div>
           Note that each section in index.html corresponds to a section in the
@@ -61,8 +60,9 @@
   </div>
 
 
-  <!-- p5.js (using CDN) -->
+    <!-- p5.js (using CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
   <!-- helpers (data/loading, scroller, visual controller) -->
   <script src="js/helpers/data_loader.js"></script>
   <script src="js/helpers/scroller.js"></script>
@@ -74,16 +74,18 @@
   <!-- sketches (manager) -->
   <script src="js/sketches/sketch_manager.js"></script>
 
-  <!-- sketches (example renderer) -->
-  <script src="js/sketches/examples/sketch_grid.js"></script>
+  <!-- REMOVE example renderer -->
+  <!-- <script src="js/sketches/examples/sketch_grid.js"></script> -->
 
-  <!-- sketches (renderers): UPDATE HERE FOR PROJECT -->
-<script src="js/sketches/viz/viz_peak_age.js"></script>
+  <!-- REMOVE example visualizations -->
+  <!--
+  <script src="js/sketches/viz/viz_title.js"></script>
   <script src="js/sketches/viz/viz_scatter.js"></script>
   <script src="js/sketches/viz/viz_bar.js"></script>
+  -->
+
+  <!-- ADD YOUR VISUALIZATION -->
+  <script src="js/sketches/viz/viz_peak_age.js"></script>
+
+  <!-- renderer (must come last) -->
   <script src="js/sketches/sketch_renderer.js"></script>
-
-
-</body>
-
-</html>
