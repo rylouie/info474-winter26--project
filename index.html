@@ -1,89 +1,80 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Scrolling Sections</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
+<title>Scrolling Sections</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
-
 <body>
-  <div class="container">
-    <div id='graphic'>
-      <div id='sections'>
-        <section class="step" data-active-index="0">
-          <div class="title">INFO 474 Final Project</div>
+<div class="container">
+<div id='graphic'>
+<div id='sections'>
+<section class="step" data-active-index="0">
+<div class="title">INFO 474 Final Project</div>
           Here is a template to work on your final project.<br /><br />
           Your mission is to create an <b>interactive article using P5.js</b>.
-        </section>
-        <section class="step" data-active-index="1">
-          <div class="title">Sections</div>
+</section>
+<section class="step" data-active-index="1">
+<div class="title">Sections</div>
           Note that each section in index.html corresponds to a section in the
           scrolling article. You can add or remove sections as needed.
-        </section>
-        <section class="step" data-active-index="2">
-          <div class="title">No visualization</div>
+</section>
+<section class="step" data-active-index="2">
+<div class="title">No visualization</div>
           You don't need to have a visualization for every section. Some sections may simply be text.
-        </section>
-        <section class="step" data-active-index="3">
-          <div class="title">Narrative</div>
+</section>
+<section class="step" data-active-index="3">
+<div class="title">Narrative</div>
           These sections will tell a story. You can use them to explain the visualization, provide context,
           or share insights.
-        </section>
-        <section class="step" data-active-index="4">
-          <div class="title">Be creative</div>
+</section>
+<section class="step" data-active-index="4">
+<div class="title">Be creative</div>
           Surprise your readers with interesting interactions, animations, or data visualizations.
-        </section>
-        <section class="step" data-active-index="5">
-          <div class="title">Same visualization multiple sections</div>
-          Some visualizations may be relevant to multiple sections. You can reuse the same visualization
-          across different sections to reinforce key points. Or build on the previous visualization to just add on.
-        </section>
-        <div id="extra-space">
-        </div>
-        <section class="step" data-active-index="6">
-          <div class="title">Examples</div>
-          There is two examples in this code. One is a grid of circles that changes color
-          based on the section index. The other is a scatter plot and bar chart that
-          shows random data points. You can modify or replace these examples with your own visualizations.
-          Make sure you read both source files to understand how they work.
-        </section>
-        <section class="step" data-active-index="7">
-          <div class="title">Best of Luck in the Project!</div>
+</section>
+<section class="step" data-active-index="5">
+<div class="title">Same visualization multiple sections</div>
+         This shows the average retirement age of positional groups, and outliers in their respective positions. Tom Brady highlights
+         a big gap in average overall position retirement and himself reitirng at 45.
+</section>
+<div id="extra-space">
+</div>
+<section class="step" data-active-index="6">
+<div class="title">Performance Curve vs. Replacement Level</div>
+          For running backs, this shows how runningbacks are replaceable at younger ages and command lower amounts of money in their contract because of that.
+          For receivers, it may emerge around 30. For quarterbacks, it happens later, which shows how physically taxing the other positions are because they are 
+          prone to getting tackled more and requires a lot more running. These patterns contextualize retirement decisions.
+</section>
+<section class="step" data-active-index="7">
+<div class="title">Best of Luck in the Project!</div>
           You are now ready to start building your interactive article. Good luck!
-        </section>
-      </div>
-      <div id='vis' class='vis-hidden'>
-      </div>
-      <div id="extra-space">
-      </div>
-    </div>
-  </div>
-
-
-  <!-- p5.js (using CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
-  <!-- helpers (data/loading, scroller, visual controller) -->
-  <script src="js/helpers/data_loader.js"></script>
-  <script src="js/helpers/scroller.js"></script>
-  <script src="js/helpers/visual_controller.js"></script>
-
-  <!-- orchestrator (wires scroller -> sketch) -->
-  <script src="js/helpers/sections.js"></script>
-
-  <!-- sketches (manager) -->
-  <script src="js/sketches/sketch_manager.js"></script>
-
-  <!-- sketches (example renderer) -->
-  <script src="js/sketches/examples/sketch_grid.js"></script>
-
-  <!-- sketches (renderers): UPDATE HERE FOR PROJECT -->
-  <script src="js/sketches/viz/viz_title.js"></script>
-  <script src="js/sketches/viz/viz_scatter.js"></script>
-  <script src="js/sketches/viz/viz_bar.js"></script>
-  <script src="js/sketches/sketch_renderer.js"></script>
-
-
+</section>
+</div>
+<div id='vis'>
+</div>
+<div id="extra-space">
+</div>
+</div>
+</div>
+<!-- p5.js (using CDN) -->
+<script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+<!-- helpers (data/loading, scroller, visual controller) -->
+<script src="js/helpers/data_loader.js"></script>
+<script src="js/helpers/scroller.js"></script>
+<script src="js/helpers/visual_controller.js"></script>
+<!-- orchestrator (wires scroller -> sketch) -->
+<script src="js/helpers/sections.js"></script>
+<!-- sketches (manager) -->
+<script src="js/sketches/sketch_manager.js"></script>
+<!-- sketches (example renderer) -->
+<script src="js/sketches/examples/sketch_grid.js"></script>
+<!-- sketches (renderers): UPDATE HERE FOR PROJECT -->
+<script src="js/sketches/viz/viz_title.js"></script>
+<script src="js/sketches/viz/viz_scatter.js"></script>
+<script src="js/sketches/viz/viz_bar.js"></script>
+<script src="js/sketches/sketch_renderer.js"></script>
+<!-- NFL Sketches -->
+<script src="js/sketches/viz/vizNFLOutliers.js"></script>
+<script src="js/sketches/viz/nflPerformance.js"></script>
 </body>
-
 </html>
