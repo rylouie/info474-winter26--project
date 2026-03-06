@@ -1,94 +1,180 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>Scrolling Sections</title>
+  <title>The Clock Runs Out — NFL Career Longevity</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f9f6f1;
+      color: #1a1a1a;
+      font-family: 'Source Serif 4', Georgia, serif;
+    }
+
+    .step {
+      color: #555044 !important;
+      font-family: 'Source Serif 4', serif !important;
+      font-size: 15px !important;
+      line-height: 1.8 !important;
+    }
+
+    #sections .title {
+      font-family: 'Playfair Display', Georgia, serif !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+      line-height: 1.25 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .step-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #b47828;
+      margin-bottom: 10px;
+    }
+
+    .step-stat {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #b47828;
+      line-height: 1;
+      margin: 16px 0 6px;
+    }
+
+    .step-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #999080;
+    }
+
+    .step-divider {
+      width: 32px;
+      height: 2px;
+      background: #b47828;
+      margin: 16px 0;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <div id='graphic'>
       <div id='sections'>
+
         <section class="step" data-active-index="0">
-  <div class="title">Age of Peak Performance by Position</div>
-  Average age by position from Basic_Stats (players 18–45). Each dot = mean age; error bars = standard deviation.
-</section>
+          <span class="step-label">Chapter 1</span>
+          <div class="title">Not All Positions Age the Same</div>
+          <div class="step-divider"></div>
+          Each dot represents the mean career age for players at that position,
+          with error bars showing how wide the spread is. Quarterbacks peak later.
+          Running backs peak youngest and fall off fastest.
+          <span class="step-stat">26.3</span>
+          <span class="step-stat-label">avg peak age for running backs</span>
+        </section>
+
         <section class="step" data-active-index="1">
-          <div class="title">Year-to-Year Change in Performance by Age</div>
-          Y-axis: % change from previous year. X-axis: Age. Inflection point = where decline accelerates.
+          <span class="step-label">Chapter 2</span>
+          <div class="title">When the Drop Off Hits</div>
+          <div class="step-divider"></div>
+          Performance doesn't fade gradually. It falls off a cliff.
+          Watch for the inflection point on the curve: the age where
+          year over year decline accelerates sharply. For running backs it comes early.
+          For quarterbacks, that cliff is a decade away.
+          <span class="step-stat">28</span>
+          <span class="step-stat-label">age where RB decline sharply accelerates</span>
         </section>
+
         <section class="step" data-active-index="2">
-          <div class="title">No visualization</div>
-          You don't need to have a visualization for every section. Some sections may simply be text.
+          <span class="step-label">Why It Matters</span>
+          <div class="title">The Body Keeps the Score</div>
+          <div class="step-divider"></div>
+          Running backs absorb more hits per carry than any other skill position.
+          Wide receivers face constant contact at the catch point. Linemen battle
+          in the trenches every single snap. The wear compounds and the data
+          reflects it in cold, precise numbers.
         </section>
+
         <section class="step" data-active-index="3">
-          <div class="title">Narrative</div>
-          These sections will tell a story. You can use them to explain the visualization, provide context,
-          or share insights.
+          <span class="step-label">The Business of Age</span>
+          <div class="title">Contracts Follow the Curve</div>
+          <div class="step-divider"></div>
+          Teams don't just watch film. They watch the data. A running back
+          approaching 28 becomes a liability on the cap sheet before he becomes
+          one on the field. The market has already priced in the decline
+          before the player even feels it.
         </section>
+
         <section class="step" data-active-index="4">
-          <div class="title">Be creative</div>
-          Surprise your readers with interesting interactions, animations, or data visualizations.
+          <span class="step-label">Context</span>
+          <div class="title">The Numbers Behind the Narrative</div>
+          <div class="step-divider"></div>
+          Every position has its own aging curve shaped by the physical demands
+          of the role. The data doesn't lie about who gets replaced and when.
         </section>
+
         <section class="step" data-active-index="5">
-          <div class="title">Same visualization multiple sections</div>
-          Some visualizations may be relevant to multiple sections. You can reuse the same visualization
-          across different sections to reinforce key points. Or build on the previous visualization to just add on.
+          <span class="step-label">Chapter 3</span>
+          <div class="title">Tom Brady Played in a Different Universe</div>
+          <div class="step-divider"></div>
+          The average quarterback retires around 36. Brady retired at 45,
+          then unretired, then retired again. His career doesn't just sit
+          outside the norm. It redefines what the upper boundary of the
+          chart even means.
+          <span class="step-stat">45</span>
+          <span class="step-stat-label">Brady's retirement age vs ~36 avg for QBs</span>
         </section>
-        <div id="extra-space">
-        </div>
+
+        <div id="extra-space"></div>
+
         <section class="step" data-active-index="6">
-          <div class="title">Examples</div>
-          There is two examples in this code. One is a grid of circles that changes color
-          based on the section index. The other is a scatter plot and bar chart that
-          shows random data points. You can modify or replace these examples with your own visualizations.
-          Make sure you read both source files to understand how they work.
+          <span class="step-label">Chapter 4</span>
+          <div class="title">Replaceable at 24. Irreplaceable at 38.</div>
+          <div class="step-divider"></div>
+          For running backs, teams can find a replacement cheaply
+          and quickly, which is why veteran running backs rarely get second contracts.
+          For quarterbacks, the replacement cost is enormous, which is why
+          teams extend aging quarterbacks long past the point other positions retire.
+          The performance curve and the replacement curve tell the full story.
         </section>
+
         <section class="step" data-active-index="7">
-          <div class="title">Best of Luck in the Project!</div>
-          You are now ready to start building your interactive article. Good luck!
+          <span class="step-label">Fin</span>
+          <div class="title">The Clock Always Runs Out</div>
+          <div class="step-divider"></div>
+          Whether at 24 or 45, every NFL career ends the same way.
+          The data just tells you roughly when to expect it
+          and who gets to defy it.
         </section>
+
       </div>
+
       <div id='vis'></div>
       <div id="peak-age-chart" class="peak-age-chart-container" aria-hidden="false"></div>
       <div id="year-over-year-chart" class="chart-container hidden" aria-hidden="true"></div>
-      <div id="extra-space">
-      </div>
+      <div id="extra-space"></div>
     </div>
   </div>
 
-
-    <!-- p5.js (using CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
-
-  <!-- helpers (data/loading, scroller, visual controller) -->
   <script src="js/helpers/data_loader.js"></script>
   <script src="js/helpers/scroller.js"></script>
   <script src="js/helpers/visual_controller.js"></script>
-
-  <!-- orchestrator (wires scroller -> sketch) -->
   <script src="js/helpers/sections.js"></script>
-
-  <!-- sketches (manager) -->
   <script src="js/sketches/sketch_manager.js"></script>
-
-  <!-- REMOVE example renderer -->
-  <!-- <script src="js/sketches/examples/sketch_grid.js"></script> -->
-
-  <!-- REMOVE example visualizations -->
-  <!--
-  <script src="js/sketches/viz/viz_title.js"></script>
-  <script src="js/sketches/viz/viz_scatter.js"></script>
-  <script src="js/sketches/viz/viz_bar.js"></script>
-  -->
-
-  <!-- Chart.js for peak-age scatter -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <!-- ADD YOUR VISUALIZATIONS -->
   <script src="js/sketches/viz/viz_peak.age.js"></script>
   <script src="js/sketches/viz/viz_year_over_year.js"></script>
-
-  <!-- renderer (must come last) -->
+  <script src="js/sketches/viz/vizNFLOutliers.js"></script>
+  <script src="js/sketches/viz/nflPerformance.js"></script>
   <script src="js/sketches/sketch_renderer.js"></script>
+
+</body>
+</html>

@@ -18,7 +18,7 @@ body {
   position: relative;
   display: inline-block;
   width: 250px;
-  top: 0;
+  top: 0px;
   z-index: 90;
   padding-bottom: 200px;
 }
@@ -44,12 +44,10 @@ body {
   height: 300px;
 }
 
-/* Fixed visual: aligned with container, to the right of 250px text column (no overlap in fullscreen) */
 #vis {
   display: inline-block;
   position: fixed;
   top: 60px;
-  /* Start after text: container left + 250px section + 30px gap; container is 890px centered */
   left: max(280px, calc((100vw - 890px) / 2 + 280px));
   width: min(560px, calc(100vw - max(280px, calc((100vw - 890px) / 2 + 280px)) - 40px));
   min-height: 360px;
@@ -61,7 +59,6 @@ body {
   display: block;
 }
 
-/* Peak-age chart container (section 0) */
 #peak-age-chart {
   display: block;
   position: fixed;
@@ -72,14 +69,15 @@ body {
   z-index: 101;
   box-sizing: border-box;
 }
+
 #peak-age-chart.hidden {
   display: none !important;
 }
+
 #peak-age-chart canvas {
   display: block;
 }
 
-/* Year-over-year chart container (section 1) */
 #year-over-year-chart {
   display: block;
   position: fixed;
@@ -90,20 +88,22 @@ body {
   z-index: 101;
   box-sizing: border-box;
 }
+
 #year-over-year-chart.hidden {
   display: none !important;
 }
+
 #year-over-year-chart canvas {
   display: block;
 }
 
-/* visibility helpers for popup effect controlled by VisualController */
 .vis-hidden {
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
   transition: opacity 260ms ease, transform 260ms ease;
 }
+
 .vis-visible {
   opacity: 1;
   pointer-events: auto;
