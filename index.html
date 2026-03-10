@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The Clock Runs Out — NFL Career Longevity</title>
+  <title>When Is It Time to Walk Away? — NFL Career Longevity</title>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,13 +12,98 @@
       font-family: 'Source Serif 4', Georgia, serif;
     }
 
+    /* ── Hero ── */
+    .article-hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      border-bottom: 1px solid #e0dbd0;
+    }
+    .article-hero .byline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #b47828;
+      margin-bottom: 18px;
+    }
+    .article-hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.15;
+      color: #1a1a1a;
+      margin: 0 0 16px;
+    }
+    .article-hero .deck {
+      font-size: 18px;
+      color: #555044;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+    .article-hero .authors {
+      font-size: 12px;
+      color: #999080;
+      letter-spacing: 0.05em;
+    }
+    .article-hero .authors strong {
+      color: #555044;
+    }
+
+    /* ── Prose sections above/below scrollytelling ── */
+    .article-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .article-section {
+      padding: 48px 0 0;
+      border-top: 1px solid #e0dbd0;
+      margin-top: 48px;
+    }
+    .article-section:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 40px;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #b47828;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .article-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    .section-divider {
+      width: 32px;
+      height: 2px;
+      background: #b47828;
+      margin: 14px 0 20px;
+    }
+    .article-section p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #555044;
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    /* ── Scrollytelling steps ── */
     .step {
       color: #555044 !important;
       font-family: 'Source Serif 4', serif !important;
       font-size: 15px !important;
       line-height: 1.8 !important;
     }
-
     #sections .title {
       font-family: 'Playfair Display', Georgia, serif !important;
       font-size: 22px !important;
@@ -27,7 +112,6 @@
       line-height: 1.25 !important;
       margin-bottom: 10px !important;
     }
-
     .step-label {
       display: inline-block;
       font-size: 10px;
@@ -37,7 +121,6 @@
       color: #b47828;
       margin-bottom: 10px;
     }
-
     .step-stat {
       display: block;
       font-family: 'Playfair Display', serif;
@@ -47,105 +130,171 @@
       line-height: 1;
       margin: 16px 0 6px;
     }
-
     .step-stat-label {
       font-size: 11px;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #999080;
     }
-
     .step-divider {
       width: 32px;
       height: 2px;
       background: #b47828;
       margin: 16px 0;
     }
+    .step-pullquote {
+      border-left: 3px solid #b47828;
+      padding: 6px 0 6px 14px;
+      margin: 16px 0;
+      font-size: 14px;
+      font-style: italic;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* ── Conclusions + data sources ── */
+    .article-conclusions {
+      max-width: 860px;
+      margin: 48px auto 0;
+      padding: 48px 20px 60px;
+      border-top: 1px solid #e0dbd0;
+    }
+    .article-conclusions h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+    .article-conclusions p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #555044;
+      max-width: 620px;
+      margin-bottom: 16px;
+    }
+    .data-sources {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      border-top: 1px solid #e0dbd0;
+    }
+    .data-sources h3 {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #999080;
+      margin-bottom: 12px;
+    }
+    .data-sources p {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.7;
+      max-width: 620px;
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <div class="article-hero">
+    <div class="byline">INFO 474 &nbsp;·&nbsp; Interactive Information Visualization &nbsp;·&nbsp; Winter 2026</div>
+    <h1>When Is It Time<br>to Walk Away?</h1>
+    <p class="deck">How age shapes performance and retirement in the NFL — and what the data reveals about the short, unforgiving arc of a professional football career.</p>
+    <div class="authors"><strong>Noa Avitan &nbsp;·&nbsp; Jake Ku &nbsp;·&nbsp; Ryan Louie</strong></div>
+  </div>
+
+  <!-- ── Intro prose ───────────────────────────────────── -->
+  <div class="article-body">
+    <div class="article-section" style="border-top:none; padding-top:40px;">
+      <span class="section-label">The Illusion of Longevity</span>
+      <h2>The NFL Is Not Built for Longevity. It Is Built for Replacement.</h2>
+      <div class="section-divider"></div>
+      <p>Every April, the NFL Draft reinforces a belief that professional football is a long runway. Young athletes are introduced as foundational pieces of franchises, projected into futures filled with Pro Bowls and playoff runs. Youth represents possibility. Athletic prime seems inevitable. The league markets growth.</p>
+      <p>But the average professional football career lasts only a few years. The majority of players cycle through the league before they ever approach their thirties. While fans tend to remember decade-long careers, those careers are statistical outliers rather than norms. The narrative of sustained dominance obscures the volatility that defines most professional trajectories.</p>
+      <p>At the center of this volatility is age. Physical decline, injury accumulation, strategic evolution, and economic incentives all intersect with the aging process. Yet aging in the NFL is not uniform — it varies sharply by position, role, and skill profile. Understanding how performance changes over time requires more than looking at birthdays. It requires examining how production evolves relative to positional demands.</p>
+    </div>
+  </div>
+
+  <!-- ── Scrollytelling ────────────────────────────────── -->
   <div class="container">
     <div id='graphic'>
       <div id='sections'>
 
         <section class="step" data-active-index="0">
-          <span class="step-label">The Data</span>
-          <div class="title">Average Performance vs. Age by Position</div>
+          <span class="step-label">Visualization 1</span>
+          <div class="title">The Aging Curve by Position</div>
           <div class="step-divider"></div>
-          When performance is plotted across age, distinct curves emerge for each position.
-          Running backs peak earliest, wide receivers peak later, and quarterbacks
-          peak latest of all. Click a position in the legend to isolate it.
+          When performance is plotted across age, distinct curves emerge for each position group. Running backs rise quickly and reach peak production in their mid-twenties before declining sharply. Wide receivers peak slightly later and often experience a more gradual descent. Quarterbacks display the latest peaks and the slowest decline — reflecting how decision-making and experience can offset physical deterioration.
+          <br><br>
+          These differences are not arbitrary. Running backs depend heavily on acceleration and lateral explosiveness. Quarterbacks rely more on anticipation and experience — traits that can improve even as certain physical attributes diminish.
+          <br><br>
+          <em style="font-size:13px; color:#999080;">Click a position in the legend to isolate it. Hover to compare values.</em>
         </section>
 
         <section class="step" data-active-index="1">
-          <span class="step-label">The Reality</span>
+          <span class="step-label">Visualization 2</span>
           <div class="title">Most Careers Are Shorter Than You Think</div>
           <div class="step-divider"></div>
-          The median NFL career spans just 3–4 seasons. Running backs and
-          wide receivers cycle through the league fastest. Quarterbacks
-          last longest — not because they're tougher, but because they're
-          harder to replace. Hover each position to see the full distribution.
+          Career length distributions show that positions built around physical collision and speed have compressed career spans. Running backs display some of the shortest median tenures. Quarterbacks tend to have longer distributions, reflecting both strategic value and lower exposure to high-frequency collision.
+          <br><br>
+          This turnover creates survivorship bias. The players whose careers extend into their mid- or late-thirties dominate cultural memory — yet the median player experiences a career measured in seasons, not decades.
+          <span class="step-stat">3–4</span>
+          <span class="step-stat-label">Median NFL career length in seasons</span>
         </section>
 
         <section class="step" data-active-index="2">
-          <div class="title">Not All Positions Age the Same</div>
+          <span class="step-label">Visualization 3</span>
+          <div class="title">The Age of Peak Performance</div>
           <div class="step-divider"></div>
-          Each dot represents the mean career age for players at that position,
-          with error bars showing how wide the spread is. Quarterbacks peak later.
-          Running backs peak youngest and fall off fastest.
+          Performance does not simply deteriorate from day one. Most players improve in their early professional years, adapting to game speed, refining technique, and building physical strength. There is a window where experience and physical capacity align optimally — and that window differs by position.
+          <br><br>
+          Each dot represents the average peak age for players at that position, with error bars showing the spread of variation.
           <span class="step-stat">26.3</span>
-          <span class="step-stat-label">avg peak age for running backs</span>
+          <span class="step-stat-label">Average peak age for running backs</span>
         </section>
 
         <section class="step" data-active-index="3">
-          <span class="step-label">Chapter 2</span>
-          <div class="title">When the Drop Off Hits</div>
+          <span class="step-label">Visualization 4</span>
+          <div class="title">The Performance Cliff</div>
           <div class="step-divider"></div>
-          Performance doesn't fade gradually. It falls off a cliff.
-          Watch for the inflection point on the curve: the age where
-          year over year decline accelerates sharply. For running backs it comes early.
-          For quarterbacks, that cliff is a decade away.
+          Aging in professional football often resembles a cliff rather than a gentle slope. Year-to-year changes in productivity reveal inflection points where decline accelerates sharply. For running backs, this frequently appears around age 27 or 28. For receivers, it often emerges near 30. Quarterbacks may delay steep regression until their mid-thirties — but when it arrives, it can be dramatic.
+          <div class="step-pullquote">
+            "The decline is not always predictable. It can arrive abruptly, transforming a high-level contributor into a rotational player within a single season."
+          </div>
           <span class="step-stat">28</span>
-          <span class="step-stat-label">age where RB decline sharply accelerates</span>
+          <span class="step-stat-label">Age where RB decline sharply accelerates</span>
         </section>
 
         <section class="step" data-active-index="4">
-          <span class="step-label">Why It Matters</span>
+          <span class="step-label">The Physical Toll</span>
           <div class="title">The Body Keeps the Score</div>
           <div class="step-divider"></div>
-          Running backs absorb more hits per carry than any other skill position.
-          Wide receivers face constant contact at the catch point. Linemen battle
-          in the trenches every single snap. The wear compounds and the data
-          reflects it in cold, precise numbers.
+          Running backs absorb repeated high-impact contact and depend heavily on acceleration and lateral explosiveness. Wide receivers face constant contact at the catch point. The wear compounds — and the data reflects it. The acceleration of decline likely reflects cumulative injury burden, reduced snap share, and diminishing physical margins.
         </section>
 
         <section class="step" data-active-index="5">
           <span class="step-label">The Business of Age</span>
           <div class="title">Contracts Follow the Curve</div>
           <div class="step-divider"></div>
-          Teams don't just watch film. They watch the data. A running back
-          approaching 28 becomes a liability on the cap sheet before he becomes
-          one on the field. The market has already priced in the decline
-          before the player even feels it.
+          Teams don't just watch film — they watch the data. Roster competition is constant. Rookie contracts incentivize teams to cycle through younger players with lower salary burdens. A running back approaching 28 becomes a liability on the cap sheet before he becomes one on the field. The market has already priced in the decline before the player even feels it.
         </section>
 
         <section class="step" data-active-index="6">
           <span class="step-label">Context</span>
-          <div class="title">The Numbers Behind the Narrative</div>
+          <div class="title">Regression Becomes Self-Reinforcing</div>
           <div class="step-divider"></div>
-          Every position has its own aging curve shaped by the physical demands
-          of the role. The data doesn't lie about who gets replaced and when.
+          Once a player's output dips slightly, teams may allocate fewer opportunities. Fewer opportunities lead to lower counting statistics, reinforcing perceptions of decline. Regression becomes self-reinforcing — and the dynamic complicates retirement decisions. The data reveals this pattern consistently across every position group.
         </section>
 
         <section class="step" data-active-index="7">
-          <span class="step-label">Chapter 3</span>
+          <span class="step-label">Visualization 5 &nbsp;·&nbsp; Outliers</span>
           <div class="title">Tom Brady Played in a Different Universe</div>
           <div class="step-divider"></div>
-          The average quarterback retires around 36. Brady retired at 45,
-          then unretired, then retired again. His career doesn't just sit
-          outside the norm. It redefines what the upper boundary of the
-          chart even means.
+          Public understanding of aging in the NFL is shaped by rare longevity. Brady retired at 45. Jerry Rice remained productive beyond the typical positional window. Aaron Rodgers sustained high-level play well into his late thirties. These players alter expectations and become reference points in debates about when athletes "should" retire.
+          <br><br>
+          Yet they exist at the extreme right tail of the distribution. Their existence demonstrates possibility — it does not redefine probability. Longevity is achievable. It is simply rare.
           <span class="step-stat">45</span>
           <span class="step-stat-label">Brady's retirement age vs ~36 avg for QBs</span>
         </section>
@@ -153,23 +302,23 @@
         <div id="extra-space"></div>
 
         <section class="step" data-active-index="8">
-          <span class="step-label">Chapter 4</span>
+          <span class="step-label">Visualization 6 &nbsp;·&nbsp; Economics</span>
           <div class="title">Replaceable at 24. Irreplaceable at 38.</div>
           <div class="step-divider"></div>
-          For running backs, teams can find a replacement cheaply
-          and quickly, which is why veteran running backs rarely get second contracts.
-          For quarterbacks, the replacement cost is enormous, which is why
-          teams extend aging quarterbacks long past the point other positions retire.
-          The performance curve and the replacement curve tell the full story.
+          For running backs, the intersection between expected performance and replacement level often appears in the late twenties. For receivers, near age 30. For quarterbacks, it occurs later — reflecting both positional scarcity and strategic importance.
+          <br><br>
+          These intersections do not dictate retirement decisions, but they contextualize them. A player may still be productive relative to league average while simultaneously declining relative to contract value. The tension between ability and cost becomes sharper with age.
+          <span class="step-stat">~27–28</span>
+          <span class="step-stat-label">Age RB performance crosses replacement level</span>
         </section>
 
         <section class="step" data-active-index="9">
-          <span class="step-label">Fin</span>
+          <span class="step-label">Conclusion</span>
           <div class="title">The Clock Always Runs Out</div>
           <div class="step-divider"></div>
-          Whether at 24 or 45, every NFL career ends the same way.
-          The data just tells you roughly when to expect it
-          and who gets to defy it.
+          Age provides probability, not certainty. Performance curves describe tendencies, not destinies. Yet the data reveals a consistent truth: aging is positional, decline is often nonlinear, and economic incentives amplify small performance shifts.
+          <br><br>
+          In the NFL, the margin between peak and replacement narrows quickly. Eventually, for nearly every player, the curve bends downward. The only uncertainty is when it crosses the line.
         </section>
 
       </div>
@@ -183,6 +332,28 @@
     </div>
   </div>
 
+  <!-- ── Conclusions ───────────────────────────────────── -->
+  <div class="article-conclusions">
+    <span class="section-label">Takeaways</span>
+    <h2>What the Data Tells Us</h2>
+    <div class="section-divider"></div>
+    <p>Every position has its own aging curve shaped by the physical and cognitive demands of the role. Running backs and wide receivers face earlier physical ceilings; quarterbacks can sustain performance longer through experience and game intelligence. But for all positions, the margin between peak and replacement eventually narrows.</p>
+    <p>The NFL's economics amplify this biological reality. When projected performance falls near or below replacement level, retaining a veteran becomes less rational from a roster-construction standpoint — regardless of the player's subjective sense of ability. The tension between ability and cost becomes sharper with age.</p>
+    <p>Retirement in professional football is not purely statistical. Identity, health, legacy, financial security, and competitive drive all shape the decision. But the data provides an honest map of when, on average, the curve bends downward for each position — and how quickly it gets there.</p>
+  </div>
+
+  <!-- ── Data sources ──────────────────────────────────── -->
+  <div class="data-sources">
+    <h3>Data Sources</h3>
+    <p>
+      NFL player statistics sourced from <strong>nfl_stats.csv</strong>, covering regular seasons 2012–2024.
+      Career length computed as last season − first season + 1 per player per position.
+      Performance metric: season-average PPR points per game, minimum 6 games per season.
+      Positional age statistics sourced from <strong>Basic_Stats.csv</strong>.
+    </p>
+  </div>
+
+  <!-- ── Scripts ───────────────────────────────────────── -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
   <script src="js/helpers/data_loader.js"></script>
   <script src="js/helpers/scroller.js"></script>
@@ -197,6 +368,47 @@
   <script src="js/sketches/viz/viz_aging_curve.js"></script>
   <script src="js/sketches/viz/viz_career_length.js"></script>
   <script src="js/sketches/sketch_renderer.js"></script>
+
+  <style>
+    .viz-out-of-view { display: none !important; pointer-events: none !important; }
+  </style>
+  <script>
+    (function () {
+      var ids = ['vis','outlier-vis','perf-vis','peak-age-chart','year-over-year-chart'];
+
+      function setVisible(inView) {
+        ids.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (!el) return;
+          if (inView) el.classList.remove('viz-out-of-view');
+          else        el.classList.add('viz-out-of-view');
+        });
+      }
+
+      function check() {
+        var steps = document.querySelectorAll('.step');
+        if (!steps.length) return;
+
+        var firstStep = steps[0];
+        var lastStep  = steps[steps.length - 1];
+        var firstRect = firstStep.getBoundingClientRect();
+        var lastRect  = lastStep.getBoundingClientRect();
+
+
+        // Show viz only when first step reaches the top of the viewport
+        
+        var afterStart  = firstRect.top <= 0;
+        var beforeEnd   = lastRect.bottom > 0;
+
+        setVisible(afterStart && beforeEnd);
+      }
+
+      window.addEventListener('scroll', check, { passive: true });
+      window.addEventListener('resize', check, { passive: true });
+      window.addEventListener('load', check);
+      setTimeout(check, 200);
+    })();
+  </script>
 
 </body>
 </html>
