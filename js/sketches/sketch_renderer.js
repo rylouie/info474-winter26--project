@@ -1,5 +1,4 @@
 // sketch_renderer.js
-// Responsible for rendering the main visualization based on the current active index
 (function () {
     window.Renderer = {
   
@@ -67,10 +66,30 @@
             console.error('Year-over-year chart init failed:', err);
           }
         }
+
+        // Initialize outliers and perf curve into their own dedicated containers
+        // so they never touch #vis and never wipe the main p5 canvas
+        function createCustomVizzesOnce() {
+          var outlierEl = document.getElementById('outlier-vis');
+          if (outlierEl && !self.vizNFLOutliers && typeof VizNFLOutliers !== 'undefined') {
+            try {
+              self.vizNFLOutliers = new VizNFLOutliers();
+              self.vizNFLOutliers.setup(outlierEl);
+            } catch (err) { console.error('VizNFLOutliers init failed:', err); }
+          }
+          var perfEl = document.getElementById('perf-vis');
+          if (perfEl && !self.vizPerformanceCurve && typeof VizNFLPerformanceCurve !== 'undefined') {
+            try {
+              self.vizPerformanceCurve = new VizNFLPerformanceCurve();
+              self.vizPerformanceCurve.setup(perfEl);
+            } catch (err) { console.error('VizNFLPerformanceCurve init failed:', err); }
+          }
+        }
   
         function createCharts() {
           createPeakAgeChartOnce();
           createYearOverYearChartOnce();
+          createCustomVizzesOnce();
         }
   
         if (typeof window.DataLoader !== 'undefined' && window.DataLoader.loadCSV) {
@@ -94,98 +113,89 @@
       },
   
       draw: function (p, manager, ai, progress) {
-        var peakWrap = document.getElementById('peak-age-chart');
-        var yoyWrap = document.getElementById('year-over-year-chart');
-        var visEl = document.getElementById('vis');
+        var peakWrap   = document.getElementById('peak-age-chart');
+        var yoyWrap    = document.getElementById('year-over-year-chart');
+        var visEl      = document.getElementById('vis');
+        var outlierEl  = document.getElementById('outlier-vis');
+        var perfEl     = document.getElementById('perf-vis');
+
+        // Hide everything, then selectively show what this section needs
+        function hideAll() {
+          if (peakWrap)  peakWrap.classList.add('hidden');
+          if (yoyWrap)   yoyWrap.classList.add('hidden');
+          if (outlierEl) outlierEl.style.display = 'none';
+          if (perfEl)    perfEl.style.display = 'none';
+          if (visEl)     visEl.style.display = '';
+        }
 
         // Section 0: Aging Curve
         if (ai === 0) {
-          if (peakWrap) peakWrap.classList.add('hidden');
-          if (yoyWrap) yoyWrap.classList.add('hidden');
-          if (visEl) visEl.style.display = '';
-          if (window.AgingCurveViz && window.AgingCurveViz.draw) {
+          hideAll();
+          if (window.AgingCurveViz && window.AgingCurveViz.draw)
             window.AgingCurveViz.draw(p, manager, ai, progress);
-          }
           return;
         }
 
         // Section 1: Career Length Distribution
         if (ai === 1) {
-          if (peakWrap) peakWrap.classList.add('hidden');
-          if (yoyWrap) yoyWrap.classList.add('hidden');
-          if (visEl) visEl.style.display = '';
-          if (window.CareerLengthViz && window.CareerLengthViz.draw) {
+          hideAll();
+          if (window.CareerLengthViz && window.CareerLengthViz.draw)
             window.CareerLengthViz.draw(p, manager, ai, progress);
-          }
           return;
         }
 
-        // Section 2: peak-age chart
+        // Section 2: Peak-age chart
         if (ai === 2) {
+          hideAll();
           if (peakWrap) peakWrap.classList.remove('hidden');
-          if (yoyWrap) yoyWrap.classList.add('hidden');
-          if (visEl) visEl.style.display = '';
           p.background(249, 246, 241);
           return;
         }
-  
-        // Section 3: year-over-year line chart
-        if (ai === 3) {
-          if (peakWrap) peakWrap.classList.add('hidden');
-          if (yoyWrap) yoyWrap.classList.remove('hidden');
-          if (visEl) visEl.style.display = '';
-          p.background(249, 246, 241);
-          return;
-        }
-  
-        // All other sections: hide chart containers, show #vis
-        if (peakWrap) peakWrap.classList.add('hidden');
-        if (yoyWrap) yoyWrap.classList.add('hidden');
-        if (visEl) visEl.style.display = '';
 
-        // Clear canvas for sections with no p5 visualization (4, 5, 6)
-        if (ai === 4 || ai === 5 || ai === 6) {
+        // Section 3: Year-over-year
+        if (ai === 3) {
+          hideAll();
+          if (yoyWrap) yoyWrap.classList.remove('hidden');
           p.background(249, 246, 241);
           return;
         }
-  
+
+        // Sections 4, 5, 6: narrative only
+        if (ai === 4 || ai === 5 || ai === 6) {
+          hideAll();
+          p.background(249, 246, 241);
+          return;
+        }
+
         // Section 7: NFL Outliers
         if (ai === 7) {
-          if (!this.vizNFLOutliers) {
-            this.vizNFLOutliers = new VizNFLOutliers();
-            this.vizNFLOutliers.setup(document.getElementById('vis'));
-          }
-          this.vizNFLOutliers.setScrollProgress(progress);
+          hideAll();
+          if (visEl) visEl.style.display = 'none'; // hide p5 canvas, show outlier container
+          if (outlierEl) outlierEl.style.display = '';
+          if (this.vizNFLOutliers) this.vizNFLOutliers.setScrollProgress(progress);
           return;
-        } else {
-          if (this.vizNFLOutliers) {
-            this.vizNFLOutliers.destroy();
-            this.vizNFLOutliers = null;
-          }
         }
-  
+
         // Section 8: Performance Curve
         if (ai === 8) {
-          if (!this.vizPerformanceCurve) {
-            this.vizPerformanceCurve = new VizNFLPerformanceCurve();
-            this.vizPerformanceCurve.setup(document.getElementById('vis'));
-          }
-          this.vizPerformanceCurve.setScrollProgress(progress);
+          hideAll();
+          if (visEl) visEl.style.display = 'none'; // hide p5 canvas, show perf container
+          if (perfEl) perfEl.style.display = '';
+          if (this.vizPerformanceCurve) this.vizPerformanceCurve.setScrollProgress(progress);
           return;
-        } else {
-          if (this.vizPerformanceCurve) {
-            this.vizPerformanceCurve.destroy();
-            this.vizPerformanceCurve = null;
-          }
         }
-  
+
         // Section 9: Bar
         if (ai === 9) {
-          if (window.VizBar && window.VizBar.draw) {
+          hideAll();
+          if (window.VizBar && window.VizBar.draw)
             window.VizBar.draw(p, manager, ai, progress);
-          }
           return;
         }
+
+        // Fallback
+        hideAll();
+        p.background(249, 246, 241);
       }
     };
   })();
