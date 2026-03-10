@@ -6,32 +6,48 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
+    /* ── Base ───────────────────────────────────────────────────── */
     body {
       background: #f9f6f1;
       color: #1a1a1a;
       font-family: 'Source Serif 4', Georgia, serif;
+      margin: 0;
     }
 
-    /* ── Hero ── */
-    .article-hero {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 60px 20px 40px;
-      border-bottom: 1px solid #e0dbd0;
-    }
-    .article-hero .byline {
+    /* ── NFL Top Bar ────────────────────────────────────────────── */
+    .nfl-bar {
+      background: #013369;
+      color: #fff;
+      text-align: center;
+      padding: 8px 20px;
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #b47828;
-      margin-bottom: 18px;
+      font-family: 'Source Serif 4', sans-serif;
+    }
+    .nfl-bar span { color: #d4af37; }
+
+    /* ── Hero ───────────────────────────────────────────────────── */
+    .article-hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 40px;
+      border-bottom: 3px solid #013369;
+    }
+    .article-hero .byline {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #013369;
+      margin-bottom: 16px;
+      font-weight: 600;
     }
     .article-hero h1 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 42px;
+      font-size: 46px;
       font-weight: 700;
-      line-height: 1.15;
-      color: #1a1a1a;
+      line-height: 1.1;
+      color: #013369;
       margin: 0 0 16px;
     }
     .article-hero .deck {
@@ -45,12 +61,13 @@
       font-size: 12px;
       color: #999080;
       letter-spacing: 0.05em;
+      border-top: 1px solid #e0dbd0;
+      padding-top: 14px;
+      margin-top: 14px;
     }
-    .article-hero .authors strong {
-      color: #555044;
-    }
+    .article-hero .authors strong { color: #013369; }
 
-    /* ── Prose sections above/below scrollytelling ── */
+    /* ── Prose blocks (above/below scrollytelling) ──────────────── */
     .article-body {
       max-width: 860px;
       margin: 0 auto;
@@ -61,43 +78,49 @@
       border-top: 1px solid #e0dbd0;
       margin-top: 48px;
     }
-    .article-section:first-child {
-      border-top: none;
-      margin-top: 0;
-      padding-top: 40px;
-    }
+    .article-section:first-child { border-top: none; margin-top: 0; padding-top: 40px; }
     .section-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #b47828;
-      margin-bottom: 10px;
-      display: block;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: #013369; margin-bottom: 10px; display: block;
     }
     .article-section h2 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: #1a1a1a;
-      line-height: 1.2;
-      margin: 0 0 12px;
+      font-size: 28px; font-weight: 700; color: #1a1a1a;
+      line-height: 1.2; margin: 0 0 12px;
     }
-    .section-divider {
-      width: 32px;
-      height: 2px;
-      background: #b47828;
-      margin: 14px 0 20px;
-    }
+    .section-divider { width: 32px; height: 3px; background: #013369; margin: 14px 0 20px; }
     .article-section p {
-      font-size: 15px;
-      line-height: 1.85;
-      color: #555044;
-      margin-bottom: 16px;
-      max-width: 620px;
+      font-size: 15px; line-height: 1.85; color: #555044;
+      margin-bottom: 16px; max-width: 620px;
     }
 
-    /* ── Scrollytelling steps ── */
+    /* ── Narrative-only steps (centered) ────────────────────────── */
+    .narrative-section {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 72px 20px;
+      text-align: center;
+      border-top: 1px solid #e0dbd0;
+    }
+    .narrative-section .section-label { color: #013369; }
+    .narrative-section h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 28px; font-weight: 700; color: #1a1a1a;
+      line-height: 1.2; margin: 0 0 12px;
+    }
+    .narrative-section .section-divider { margin: 14px auto 20px; }
+    .narrative-section p {
+      font-size: 15px; line-height: 1.85; color: #555044; margin-bottom: 16px;
+    }
+    .narrative-section .pullquote {
+      border-left: 3px solid #013369;
+      padding: 8px 0 8px 18px;
+      margin: 20px auto;
+      font-size: 15px; font-style: italic; color: #333;
+      text-align: left; max-width: 480px;
+    }
+
+    /* ── Scrollytelling steps ───────────────────────────────────── */
     .step {
       color: #555044 !important;
       font-family: 'Source Serif 4', serif !important;
@@ -106,106 +129,154 @@
     }
     #sections .title {
       font-family: 'Playfair Display', Georgia, serif !important;
-      font-size: 22px !important;
-      font-weight: 700 !important;
-      color: #1a1a1a !important;
-      line-height: 1.25 !important;
+      font-size: 22px !important; font-weight: 700 !important;
+      color: #013369 !important; line-height: 1.25 !important;
       margin-bottom: 10px !important;
     }
+
+    /* Full-width narrative steps (sections 4, 5, 6) — break out of the sidebar column */
     .step-label {
-      display: inline-block;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #b47828;
-      margin-bottom: 10px;
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #013369; margin-bottom: 10px;
     }
     .step-stat {
-      display: block;
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: #b47828;
-      line-height: 1;
-      margin: 16px 0 6px;
+      display: block; font-family: 'Playfair Display', serif;
+      font-size: 42px; font-weight: 700; color: #d4af37;
+      line-height: 1; margin: 16px 0 6px;
     }
     .step-stat-label {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #999080;
+      font-size: 11px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: #999080;
     }
-    .step-divider {
-      width: 32px;
-      height: 2px;
-      background: #b47828;
-      margin: 16px 0;
-    }
+    .step-divider { width: 32px; height: 3px; background: #013369; margin: 16px 0; }
     .step-pullquote {
-      border-left: 3px solid #b47828;
-      padding: 6px 0 6px 14px;
-      margin: 16px 0;
-      font-size: 14px;
-      font-style: italic;
-      color: #444;
-      line-height: 1.6;
+      border-left: 3px solid #013369;
+      padding: 6px 0 6px 14px; margin: 16px 0;
+      font-size: 14px; font-style: italic; color: #444; line-height: 1.6;
     }
 
-    /* ── Conclusions + data sources ── */
+    /* ── Conclusions ────────────────────────────────────────────── */
     .article-conclusions {
-      max-width: 860px;
-      margin: 48px auto 0;
-      padding: 48px 20px 60px;
-      border-top: 1px solid #e0dbd0;
+      max-width: 860px; margin: 0 auto 0;
+      padding: 48px 20px 60px; border-top: 3px solid #013369;
+      position: relative; z-index: 300;
+      background: #f9f6f1;
     }
     .article-conclusions h2 {
       font-family: 'Playfair Display', Georgia, serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 20px;
+      font-size: 26px; font-weight: 700; color: #013369; margin-bottom: 20px;
     }
     .article-conclusions p {
-      font-size: 15px;
-      line-height: 1.85;
-      color: #555044;
-      max-width: 620px;
-      margin-bottom: 16px;
+      font-size: 15px; line-height: 1.85; color: #555044;
+      max-width: 620px; margin-bottom: 16px;
     }
-    .data-sources {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
+
+    /* ── References ─────────────────────────────────────────────── */
+    .references {
+      max-width: 860px; margin: 0 auto;
+      padding: 32px 20px 24px; border-top: 1px solid #e0dbd0;
+      position: relative; z-index: 300;
+      background: #f9f6f1;
+    }
+    .references h3 {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #013369; margin-bottom: 16px; font-weight: 600;
+    }
+    .references ol {
+      padding-left: 20px; margin: 0;
+    }
+    .references ol li {
+      font-size: 13px; color: #666; line-height: 1.7; margin-bottom: 8px;
+    }
+    .references ol li a { color: #013369; text-decoration: underline; }
+
+    /* ── Footer ─────────────────────────────────────────────────── */
+    .site-footer {
+      background: #013369; color: #a0b4cc;
+      text-align: center; padding: 24px 20px;
+      font-size: 11px; letter-spacing: 0.1em;
+      margin-top: 48px;
+      position: relative; z-index: 300;
+    }
+    .site-footer span { color: #d4af37; }
+
+    /* ── Sentinel steps (empty placeholders for scroller) ───────── */
+    .step-sentinel {
+      min-height: 200px !important;
+      background: transparent !important;
+      border: none !important;
+      margin-bottom: 0 !important;
+    }
+    /* Conclusion sentinel needs extra height so viz 6 fully animates first */
+    .step-sentinel[data-active-index="9"] {
+      min-height: 600px !important;
+    }
+    /* Override style.css #sections padding-bottom that adds dead space */
+    #sections {
+      padding-bottom: 0 !important;
+    }
+
+    /* ── Full-width interstitials (positioned by JS over sentinels) */
+    .interstitial {
+      position: absolute;
+      left: 0; right: 0;
+      background: #f9f6f1;
       border-top: 1px solid #e0dbd0;
+      border-bottom: 1px solid #e0dbd0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      pointer-events: none;
     }
-    .data-sources h3 {
-      font-size: 10px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #999080;
-      margin-bottom: 12px;
+    .interstitial-inner {
+      max-width: 580px;
+      width: 100%;
+      padding: 60px 20px;
+      text-align: center;
     }
-    .data-sources p {
-      font-size: 13px;
-      color: #888;
-      line-height: 1.7;
-      max-width: 620px;
+    .interstitial .step-label {
+      display: inline-block; font-size: 10px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: #013369; margin-bottom: 10px;
     }
+    .interstitial .i-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px; font-weight: 700; color: #013369;
+      line-height: 1.2; margin: 0 0 12px;
+    }
+    .interstitial .step-divider { width: 32px; height: 3px; background: #013369; margin: 14px auto 20px; }
+    .interstitial p {
+      font-size: 15px; line-height: 1.85; color: #555044; margin-bottom: 14px;
+    }
+
+    /* ── Override style.css: JS controls top dynamically; start hidden ── */
+    #vis, #peak-age-chart, #year-over-year-chart {
+      top: 150px !important;
+      visibility: hidden;
+    }
+    .viz-out-of-view { visibility: hidden !important; pointer-events: none !important; }
   </style>
 </head>
 
 <body>
 
-  <!-- ── Hero ─────────────────────────────────────────── -->
-  <div class="article-hero">
-    <div class="byline">INFO 474 &nbsp;·&nbsp; Interactive Information Visualization &nbsp;·&nbsp; Winter 2026</div>
-    <h1>When Is It Time<br>to Walk Away?</h1>
-    <p class="deck">How age shapes performance and retirement in the NFL — and what the data reveals about the short, unforgiving arc of a professional football career.</p>
-    <div class="authors"><strong>Noa Avitan &nbsp;·&nbsp; Jake Ku &nbsp;·&nbsp; Ryan Louie</strong></div>
+  <!-- ── NFL Top Bar ───────────────────────────────────────────── -->
+  <div class="nfl-bar">
+    INFO 474 &nbsp;·&nbsp; Interactive Information Visualization &nbsp;·&nbsp; Winter 2026 &nbsp;·&nbsp;
+    <span>NFL Career Longevity Analysis</span>
   </div>
 
-  <!-- ── Intro prose ───────────────────────────────────── -->
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <div class="article-hero">
+    <div class="byline">Data Analysis &nbsp;·&nbsp; Sports Science &nbsp;·&nbsp; 2012–2024 Regular Seasons</div>
+    <h1>When Is It Time<br>to Walk Away?</h1>
+    <p class="deck">How age shapes performance and retirement in the NFL — and what the data reveals about the short, unforgiving arc of a professional football career.</p>
+    <div class="authors"><strong>Noa Avitan &nbsp;·&nbsp; Jake Ku &nbsp;·&nbsp; Ryan Louie</strong> &nbsp;|&nbsp; University of Washington, INFO 474</div>
+  </div>
+
+  <!-- ── Intro prose ───────────────────────────────────────────── -->
   <div class="article-body">
     <div class="article-section" style="border-top:none; padding-top:40px;">
       <span class="section-label">The Illusion of Longevity</span>
@@ -217,7 +288,7 @@
     </div>
   </div>
 
-  <!-- ── Scrollytelling ────────────────────────────────── -->
+  <!-- ── Scrollytelling ────────────────────────────────────────── -->
   <div class="container">
     <div id='graphic'>
       <div id='sections'>
@@ -226,18 +297,18 @@
           <span class="step-label">Visualization 1</span>
           <div class="title">The Aging Curve by Position</div>
           <div class="step-divider"></div>
-          When performance is plotted across age, distinct curves emerge for each position group. Running backs rise quickly and reach peak production in their mid-twenties before declining sharply. Wide receivers peak slightly later and often experience a more gradual descent. Quarterbacks display the latest peaks and the slowest decline — reflecting how decision-making and experience can offset physical deterioration.
+          When PPR points-per-game are averaged across age groups and normalized to a 0–100 index, distinct curves emerge for each position. Running backs rise quickly and peak in their mid-twenties before declining sharply. Wide receivers peak slightly later with a more gradual descent. Quarterbacks display the latest peaks and the slowest decline — reflecting how decision-making and experience can offset physical deterioration.
           <br><br>
-          These differences are not arbitrary. Running backs depend heavily on acceleration and lateral explosiveness. Quarterbacks rely more on anticipation and experience — traits that can improve even as certain physical attributes diminish.
+          These differences reflect the physical demands of each role. Running backs depend heavily on acceleration and explosiveness; quarterbacks rely on anticipation and experience that can improve even as certain physical attributes diminish.
           <br><br>
-          <em style="font-size:13px; color:#999080;">Click a position in the legend to isolate it. Hover to compare values.</em>
+          <em style="font-size:13px; color:#888;">Click a position to isolate · Hover to compare values</em>
         </section>
 
         <section class="step" data-active-index="1">
           <span class="step-label">Visualization 2</span>
           <div class="title">Most Careers Are Shorter Than You Think</div>
           <div class="step-divider"></div>
-          Career length distributions show that positions built around physical collision and speed have compressed career spans. Running backs display some of the shortest median tenures. Quarterbacks tend to have longer distributions, reflecting both strategic value and lower exposure to high-frequency collision.
+          Career length distributions — computed as last season minus first season plus one — show that positions built around physical collision have compressed career spans. Running backs display the shortest median tenures. Quarterbacks tend toward longer distributions, reflecting both strategic value and lower exposure to high-frequency collision.
           <br><br>
           This turnover creates survivorship bias. The players whose careers extend into their mid- or late-thirties dominate cultural memory — yet the median player experiences a career measured in seasons, not decades.
           <span class="step-stat">3–4</span>
@@ -248,9 +319,9 @@
           <span class="step-label">Visualization 3</span>
           <div class="title">The Age of Peak Performance</div>
           <div class="step-divider"></div>
-          Performance does not simply deteriorate from day one. Most players improve in their early professional years, adapting to game speed, refining technique, and building physical strength. There is a window where experience and physical capacity align optimally — and that window differs by position.
+          Most players improve in their early professional years — adapting to game speed, refining technique, building physical strength. There is a window where experience and physical capacity align optimally, and that window differs by position.
           <br><br>
-          Each dot represents the average peak age for players at that position, with error bars showing the spread of variation.
+          Running backs frequently reach peak production between ages 24–26. Wide receivers often peak between 26–28. Quarterbacks typically achieve peak statistical output near 28–32. Each dot below shows the mean peak age with standard deviation error bars.
           <span class="step-stat">26.3</span>
           <span class="step-stat-label">Average peak age for running backs</span>
         </section>
@@ -259,80 +330,178 @@
           <span class="step-label">Visualization 4</span>
           <div class="title">The Performance Cliff</div>
           <div class="step-divider"></div>
-          Aging in professional football often resembles a cliff rather than a gentle slope. Year-to-year changes in productivity reveal inflection points where decline accelerates sharply. For running backs, this frequently appears around age 27 or 28. For receivers, it often emerges near 30. Quarterbacks may delay steep regression until their mid-thirties — but when it arrives, it can be dramatic.
-          <div class="step-pullquote">
-            "The decline is not always predictable. It can arrive abruptly, transforming a high-level contributor into a rotational player within a single season."
-          </div>
+          Aging in professional football often resembles a cliff rather than a gentle slope. Year-to-year changes in productivity reveal inflection points where decline accelerates sharply. For running backs, this frequently appears around age 27–28. For receivers, it often emerges near 30. Quarterbacks may delay steep regression until their mid-thirties.
+          <div class="step-pullquote">"The decline is not always predictable. It can arrive abruptly, transforming a high-level contributor into a rotational player within a single season."</div>
           <span class="step-stat">28</span>
           <span class="step-stat-label">Age where RB decline sharply accelerates</span>
         </section>
 
-        <section class="step" data-active-index="4">
-          <span class="step-label">The Physical Toll</span>
-          <div class="title">The Body Keeps the Score</div>
-          <div class="step-divider"></div>
-          Running backs absorb repeated high-impact contact and depend heavily on acceleration and lateral explosiveness. Wide receivers face constant contact at the catch point. The wear compounds — and the data reflects it. The acceleration of decline likely reflects cumulative injury burden, reduced snap share, and diminishing physical margins.
-        </section>
-
-        <section class="step" data-active-index="5">
-          <span class="step-label">The Business of Age</span>
-          <div class="title">Contracts Follow the Curve</div>
-          <div class="step-divider"></div>
-          Teams don't just watch film — they watch the data. Roster competition is constant. Rookie contracts incentivize teams to cycle through younger players with lower salary burdens. A running back approaching 28 becomes a liability on the cap sheet before he becomes one on the field. The market has already priced in the decline before the player even feels it.
-        </section>
-
-        <section class="step" data-active-index="6">
-          <span class="step-label">Context</span>
-          <div class="title">Regression Becomes Self-Reinforcing</div>
-          <div class="step-divider"></div>
-          Once a player's output dips slightly, teams may allocate fewer opportunities. Fewer opportunities lead to lower counting statistics, reinforcing perceptions of decline. Regression becomes self-reinforcing — and the dynamic complicates retirement decisions. The data reveals this pattern consistently across every position group.
-        </section>
+        <section class="step step-sentinel" data-active-index="4" data-interstitial="interstitial-4"></section>
+        <section class="step step-sentinel" data-active-index="5" data-interstitial="interstitial-5"></section>
+        <section class="step step-sentinel" data-active-index="6" data-interstitial="interstitial-6"></section>
 
         <section class="step" data-active-index="7">
           <span class="step-label">Visualization 5 &nbsp;·&nbsp; Outliers</span>
-          <div class="title">Tom Brady Played in a Different Universe</div>
+          <div class="title">Brady, Rice, Gore — Defying the Curve</div>
           <div class="step-divider"></div>
-          Public understanding of aging in the NFL is shaped by rare longevity. Brady retired at 45. Jerry Rice remained productive beyond the typical positional window. Aaron Rodgers sustained high-level play well into his late thirties. These players alter expectations and become reference points in debates about when athletes "should" retire.
+          Public understanding of aging in the NFL is shaped by rare longevity. Tom Brady retired at 45 — nearly a decade past the average QB retirement age of 36. Jerry Rice remained productive at 42. Frank Gore carried the ball at 39. These players alter expectations and become reference points in debates about when athletes "should" retire.
           <br><br>
           Yet they exist at the extreme right tail of the distribution. Their existence demonstrates possibility — it does not redefine probability. Longevity is achievable. It is simply rare.
           <span class="step-stat">45</span>
           <span class="step-stat-label">Brady's retirement age vs ~36 avg for QBs</span>
         </section>
 
-        <div id="extra-space"></div>
+        <div id="extra-space" style="height:0;"></div>
 
         <section class="step" data-active-index="8">
           <span class="step-label">Visualization 6 &nbsp;·&nbsp; Economics</span>
           <div class="title">Replaceable at 24. Irreplaceable at 38.</div>
           <div class="step-divider"></div>
-          For running backs, the intersection between expected performance and replacement level often appears in the late twenties. For receivers, near age 30. For quarterbacks, it occurs later — reflecting both positional scarcity and strategic importance.
+          When projected performance falls near or below the replacement-level threshold — the production a team could get from a younger, cheaper alternative — retaining a veteran becomes less rational. For running backs, this intersection appears in the late twenties. For receivers, near 30. For quarterbacks, it occurs later, reflecting positional scarcity.
           <br><br>
-          These intersections do not dictate retirement decisions, but they contextualize them. A player may still be productive relative to league average while simultaneously declining relative to contract value. The tension between ability and cost becomes sharper with age.
+          A player may still be productive relative to league average while simultaneously declining relative to contract value. The tension between ability and cost becomes sharper with age.
           <span class="step-stat">~27–28</span>
           <span class="step-stat-label">Age RB performance crosses replacement level</span>
         </section>
 
-        <section class="step" data-active-index="9">
-          <span class="step-label">Conclusion</span>
-          <div class="title">The Clock Always Runs Out</div>
-          <div class="step-divider"></div>
-          Age provides probability, not certainty. Performance curves describe tendencies, not destinies. Yet the data reveals a consistent truth: aging is positional, decline is often nonlinear, and economic incentives amplify small performance shifts.
-          <br><br>
-          In the NFL, the margin between peak and replacement narrows quickly. Eventually, for nearly every player, the curve bends downward. The only uncertainty is when it crosses the line.
-        </section>
+        <section class="step step-sentinel" data-active-index="9" data-interstitial="interstitial-9"></section>
 
       </div>
 
       <div id='vis'></div>
       <div id="outlier-vis" style="display:none; position:fixed; top:60px; left:max(280px, calc((100vw - 890px) / 2 + 280px)); width:min(560px, calc(100vw - max(280px, calc((100vw - 890px) / 2 + 280px)) - 40px)); min-height:360px; z-index:100; box-sizing:border-box;"></div>
-      <div id="perf-vis" style="display:none; position:fixed; top:60px; left:max(280px, calc((100vw - 890px) / 2 + 280px)); width:min(560px, calc(100vw - max(280px, calc((100vw - 890px) / 2 + 280px)) - 40px)); min-height:360px; z-index:100; box-sizing:border-box;"></div>
+      <div id="perf-vis"    style="display:none; position:fixed; top:60px; left:max(280px, calc((100vw - 890px) / 2 + 280px)); width:min(560px, calc(100vw - max(280px, calc((100vw - 890px) / 2 + 280px)) - 40px)); min-height:360px; z-index:100; box-sizing:border-box;"></div>
       <div id="peak-age-chart" class="peak-age-chart-container" aria-hidden="false"></div>
       <div id="year-over-year-chart" class="chart-container hidden" aria-hidden="true"></div>
-      <div id="extra-space"></div>
+      <div id="extra-space" style="height:0;"></div>
     </div>
   </div>
 
-  <!-- ── Conclusions ───────────────────────────────────── -->
+  <!-- ── Full-width interstitials for narrative sections 4/5/6 ─── -->
+  <!-- Positioned over their sentinel steps by JS below -->
+  <div id="interstitial-4" class="interstitial" style="display:none;">
+    <div class="interstitial-inner">
+      <span class="step-label">The Physical Toll</span>
+      <div class="i-title">The Body Keeps the Score</div>
+      <div class="step-divider"></div>
+      <p>Running backs absorb repeated high-impact contact on nearly every snap and depend heavily on acceleration and lateral explosiveness. Wide receivers face constant contact at the catch point. The wear compounds — and the data reflects it.</p>
+      <p>The acceleration of decline likely reflects cumulative injury burden, reduced snap share, and diminishing physical margins. Once performance slips, opportunities shrink — and regression becomes self-reinforcing.</p>
+    </div>
+  </div>
+
+  <div id="interstitial-5" class="interstitial" style="display:none;">
+    <div class="interstitial-inner">
+      <span class="step-label">The Business of Age</span>
+      <div class="i-title">Contracts Follow the Curve</div>
+      <div class="step-divider"></div>
+      <p>Teams don't just watch film — they watch the data. Roster competition is constant. Rookie contracts incentivize teams to cycle through younger players with lower salary burdens.</p>
+      <p>A running back approaching 28 becomes a liability on the cap sheet before he becomes one on the field. The market has already priced in the decline before the player even feels it.</p>
+    </div>
+  </div>
+
+  <div id="interstitial-6" class="interstitial" style="display:none;">
+    <div class="interstitial-inner">
+      <span class="step-label">Context</span>
+      <div class="i-title">Regression Becomes Self-Reinforcing</div>
+      <div class="step-divider"></div>
+      <p>Once a player's output dips slightly, teams allocate fewer opportunities. Fewer opportunities lead to lower counting statistics, reinforcing perceptions of decline.</p>
+      <p>Regression becomes self-reinforcing — and the dynamic complicates retirement decisions. The data reveals this pattern consistently across every position group.</p>
+    </div>
+  </div>
+
+  <div id="interstitial-9" class="interstitial" style="display:none;">
+    <div class="interstitial-inner">
+      <span class="step-label">Conclusion</span>
+      <div class="i-title">The Clock Always Runs Out</div>
+      <div class="step-divider"></div>
+      <p>Age provides probability, not certainty. Performance curves describe tendencies, not destinies. Yet the data reveals a consistent truth: aging is positional, decline is often nonlinear, and economic incentives amplify small performance shifts.</p>
+      <p>In the NFL, the margin between peak and replacement narrows quickly. Eventually, for nearly every player, the curve bends downward. The only uncertainty is when.</p>
+    </div>
+  </div>
+
+
+  <script>
+    (function () {
+      var VIZ_IDS    = ['vis','outlier-vis','perf-vis','peak-age-chart','year-over-year-chart'];
+      var SENTINELS  = [
+        { selector: '[data-active-index="4"]', id: 'interstitial-4' },
+        { selector: '[data-active-index="5"]', id: 'interstitial-5' },
+        { selector: '[data-active-index="6"]', id: 'interstitial-6' },
+        { selector: '[data-active-index="9"]', id: 'interstitial-9' },
+      ];
+
+      // ── Helpers ──────────────────────────────────────────────────
+      function getVizEls()  { return VIZ_IDS.map(function(id){ return document.getElementById(id); }).filter(Boolean); }
+      function getSteps()   { return Array.prototype.slice.call(document.querySelectorAll('.step')); }
+      function getGraphic() { return document.getElementById('graphic'); }
+
+      // ── Main update loop ─────────────────────────────────────────
+      function update() {
+        var graphic = getGraphic();
+        if (!graphic) return;
+
+        var graphicRect = graphic.getBoundingClientRect();
+        var steps       = getSteps();
+        if (!steps.length) return;
+
+        var firstRect = steps[0].getBoundingClientRect();
+        var lastRect  = steps[steps.length - 1].getBoundingClientRect();
+
+        // Scrollytelling is "active" when the first step has reached top of viewport
+        // and the last step has not yet scrolled off the top
+        var scrollActive = firstRect.top <= 0 && lastRect.bottom > 0;
+
+        // ── Position #vis top to match the graphic container's top ──
+        // style.css hardcodes top:60px; we override it to the actual
+        // rendered top of #graphic, clamped to ≥0
+        // When graphic is above viewport (scrolled in), use fixed 100px from top.
+        // When graphic is still below viewport, track its top so viz slides in with it.
+        var vizTop = graphicRect.top > 150 ? graphicRect.top : 150;
+
+        getVizEls().forEach(function (el) {
+          if (scrollActive) {
+            el.classList.remove('viz-out-of-view');
+            el.style.visibility = 'visible';
+            el.style.top = Math.round(vizTop) + 'px';
+          } else {
+            el.style.visibility = 'hidden';
+            el.classList.add('viz-out-of-view');
+          }
+        });
+
+        // ── Interstitials ────────────────────────────────────────────
+        SENTINELS.forEach(function (pair) {
+          var sentinel = document.querySelector(pair.selector);
+          var el       = document.getElementById(pair.id);
+          if (!sentinel || !el) return;
+
+          var r   = sentinel.getBoundingClientRect();
+          var mid = r.top + r.height / 2;
+          // Conclusion sentinel needs a later trigger so viz 6 fully animates first
+          var topThresh = pair.id === 'interstitial-9' ? 0.4 : 0.15;
+          var visible = mid > window.innerHeight * topThresh && mid < window.innerHeight * 0.85;
+
+          el.style.display       = visible ? 'flex' : 'none';
+          el.style.position      = 'fixed';
+          el.style.top           = '0';
+          el.style.left          = '0';
+          el.style.right         = '0';
+          el.style.bottom        = '0';
+          el.style.zIndex        = '200';
+          el.style.pointerEvents = 'none';
+          el.style.alignItems    = 'center';
+          el.style.justifyContent = 'center';
+          el.style.background    = '#f9f6f1';
+        });
+      }
+
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      window.addEventListener('load',   update);
+      setTimeout(update, 150);
+      setTimeout(update, 600); // second pass after p5 canvas renders
+    })();
+  </script>
   <div class="article-conclusions">
     <span class="section-label">Takeaways</span>
     <h2>What the Data Tells Us</h2>
@@ -342,18 +511,50 @@
     <p>Retirement in professional football is not purely statistical. Identity, health, legacy, financial security, and competitive drive all shape the decision. But the data provides an honest map of when, on average, the curve bends downward for each position — and how quickly it gets there.</p>
   </div>
 
-  <!-- ── Data sources ──────────────────────────────────── -->
-  <div class="data-sources">
-    <h3>Data Sources</h3>
-    <p>
-      NFL player statistics sourced from <strong>nfl_stats.csv</strong>, covering regular seasons 2012–2024.
-      Career length computed as last season − first season + 1 per player per position.
-      Performance metric: season-average PPR points per game, minimum 6 games per season.
-      Positional age statistics sourced from <strong>Basic_Stats.csv</strong>.
-    </p>
+  <!-- ── References ───────────────────────────────────────────── -->
+  <div class="references">
+    <h3>References &amp; Data Sources</h3>
+    <ol>
+      <li>
+        NFL player statistics: <strong>nfl_stats.csv</strong> — regular seasons 2012–2024. Performance metric: season-average PPR points per game (minimum 6 games/season). Career length = last season − first season + 1.
+      </li>
+      <li>
+        Positional age data: <strong>Basic_Stats.csv</strong> — player age and position across seasons.
+      </li>
+      <li>
+        Fitzgerald, M. &amp; Spielman, R. (2023). <em>NFL Career Length by Position.</em> Pro Football Reference.
+        <a href="https://www.pro-football-reference.com" target="_blank">pro-football-reference.com</a>
+      </li>
+      <li>
+        Alamar, B. (2013). <em>Sports Analytics: A Guide for Coaches, Managers, and Other Decision Makers.</em> Columbia University Press.
+      </li>
+      <li>
+        Berri, D. &amp; Burke, B. (2012). Measuring and valuing performance in professional football. <em>Journal of Quantitative Analysis in Sports, 8</em>(2).
+        <a href="https://doi.org/10.1515/1559-0410.1400" target="_blank">doi.org/10.1515/1559-0410.1400</a>
+      </li>
+      <li>
+        Massey, C. &amp; Thaler, R. H. (2013). The loser's curse: Decision making and market efficiency in the NFL Draft. <em>Management Science, 59</em>(7), 1479–1495.
+        <a href="https://doi.org/10.1287/mnsc.1120.1657" target="_blank">doi.org/10.1287/mnsc.1120.1657</a>
+      </li>
+      <li>
+        Wicker, P., Prinz, J., &amp; von Hanau, T. (2012). Estimating 'pain of losing' in sport: evidence from the NFL. <em>Applied Economics Letters, 19</em>(4), 1337–1341.
+      </li>
+      <li>
+        Over The Cap — NFL contract and salary cap data. <a href="https://overthecap.com" target="_blank">overthecap.com</a>
+      </li>
+      <li>
+        Spotrac — NFL player contracts and market values. <a href="https://www.spotrac.com" target="_blank">spotrac.com</a>
+      </li>
+    </ol>
   </div>
 
-  <!-- ── Scripts ───────────────────────────────────────── -->
+  <!-- ── Footer ────────────────────────────────────────────────── -->
+  <div class="site-footer">
+    <span>INFO 474</span> &nbsp;·&nbsp; Interactive Information Visualization &nbsp;·&nbsp; University of Washington &nbsp;·&nbsp; Winter 2026
+    <br>Noa Avitan &nbsp;·&nbsp; Jake Ku &nbsp;·&nbsp; Ryan Louie
+  </div>
+
+  <!-- ── Scripts ───────────────────────────────────────────────── -->
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
   <script src="js/helpers/data_loader.js"></script>
   <script src="js/helpers/scroller.js"></script>
@@ -369,46 +570,6 @@
   <script src="js/sketches/viz/viz_career_length.js"></script>
   <script src="js/sketches/sketch_renderer.js"></script>
 
-  <style>
-    .viz-out-of-view { display: none !important; pointer-events: none !important; }
-  </style>
-  <script>
-    (function () {
-      var ids = ['vis','outlier-vis','perf-vis','peak-age-chart','year-over-year-chart'];
-
-      function setVisible(inView) {
-        ids.forEach(function (id) {
-          var el = document.getElementById(id);
-          if (!el) return;
-          if (inView) el.classList.remove('viz-out-of-view');
-          else        el.classList.add('viz-out-of-view');
-        });
-      }
-
-      function check() {
-        var steps = document.querySelectorAll('.step');
-        if (!steps.length) return;
-
-        var firstStep = steps[0];
-        var lastStep  = steps[steps.length - 1];
-        var firstRect = firstStep.getBoundingClientRect();
-        var lastRect  = lastStep.getBoundingClientRect();
-
-
-        // Show viz only when first step reaches the top of the viewport
-        
-        var afterStart  = firstRect.top <= 0;
-        var beforeEnd   = lastRect.bottom > 0;
-
-        setVisible(afterStart && beforeEnd);
-      }
-
-      window.addEventListener('scroll', check, { passive: true });
-      window.addEventListener('resize', check, { passive: true });
-      window.addEventListener('load', check);
-      setTimeout(check, 200);
-    })();
-  </script>
 
 </body>
 </html>
