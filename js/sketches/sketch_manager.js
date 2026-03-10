@@ -33,7 +33,6 @@ function startP5() {
             };
 
             p.draw = function () {
-                p.background(255);
                 self.draw(p);
             };
         };

@@ -97,20 +97,44 @@
         var peakWrap = document.getElementById('peak-age-chart');
         var yoyWrap = document.getElementById('year-over-year-chart');
         var visEl = document.getElementById('vis');
-  
-        // Section 0: peak-age chart
+
+        // Section 0: Aging Curve
         if (ai === 0) {
+          if (peakWrap) peakWrap.classList.add('hidden');
+          if (yoyWrap) yoyWrap.classList.add('hidden');
+          if (visEl) visEl.style.display = '';
+          if (window.AgingCurveViz && window.AgingCurveViz.draw) {
+            window.AgingCurveViz.draw(p, manager, ai, progress);
+          }
+          return;
+        }
+
+        // Section 1: Career Length Distribution
+        if (ai === 1) {
+          if (peakWrap) peakWrap.classList.add('hidden');
+          if (yoyWrap) yoyWrap.classList.add('hidden');
+          if (visEl) visEl.style.display = '';
+          if (window.CareerLengthViz && window.CareerLengthViz.draw) {
+            window.CareerLengthViz.draw(p, manager, ai, progress);
+          }
+          return;
+        }
+
+        // Section 2: peak-age chart
+        if (ai === 2) {
           if (peakWrap) peakWrap.classList.remove('hidden');
           if (yoyWrap) yoyWrap.classList.add('hidden');
-          if (visEl) visEl.style.display = 'none';
+          if (visEl) visEl.style.display = '';
+          p.background(249, 246, 241);
           return;
         }
   
-        // Section 1: year-over-year line chart
-        if (ai === 1) {
+        // Section 3: year-over-year line chart
+        if (ai === 3) {
           if (peakWrap) peakWrap.classList.add('hidden');
           if (yoyWrap) yoyWrap.classList.remove('hidden');
-          if (visEl) visEl.style.display = 'none';
+          if (visEl) visEl.style.display = '';
+          p.background(249, 246, 241);
           return;
         }
   
@@ -118,9 +142,15 @@
         if (peakWrap) peakWrap.classList.add('hidden');
         if (yoyWrap) yoyWrap.classList.add('hidden');
         if (visEl) visEl.style.display = '';
+
+        // Clear canvas for sections with no p5 visualization (4, 5, 6)
+        if (ai === 4 || ai === 5 || ai === 6) {
+          p.background(249, 246, 241);
+          return;
+        }
   
-        // Section 5: NFL Outliers
-        if (ai === 5) {
+        // Section 7: NFL Outliers
+        if (ai === 7) {
           if (!this.vizNFLOutliers) {
             this.vizNFLOutliers = new VizNFLOutliers();
             this.vizNFLOutliers.setup(document.getElementById('vis'));
@@ -134,8 +164,8 @@
           }
         }
   
-        // Section 6: Performance Curve
-        if (ai === 6) {
+        // Section 8: Performance Curve
+        if (ai === 8) {
           if (!this.vizPerformanceCurve) {
             this.vizPerformanceCurve = new VizNFLPerformanceCurve();
             this.vizPerformanceCurve.setup(document.getElementById('vis'));
@@ -149,8 +179,8 @@
           }
         }
   
-        // Section 7: Bar
-        if (ai === 7) {
+        // Section 9: Bar
+        if (ai === 9) {
           if (window.VizBar && window.VizBar.draw) {
             window.VizBar.draw(p, manager, ai, progress);
           }
